@@ -5,6 +5,33 @@
 #include<string>
 #include<ctime>
 using namespace std;
+int bmicomparison(double measuredbmi)
+{
+    int level;
+if(measuredbmi>0&&measuredbmi<18)
+{
+    level=0;
+}
+else if(measuredbmi>18&&measuredbmi<25)
+{
+    level=1;
+}
+else if(measuredbmi>25&&measuredbmi<35)
+{
+    level=2;
+}
+else if(measuredbmi>35)
+{
+    level=3;
+}
+return level;
+}
+double bmi(double convertedheight,double convertedweight)
+{
+    int bmi;
+    double heightinmeters=convertedheight/100;
+    return convertedweight/(heightinmeters*heightinmeters);
+}
 double conversionheight(double height,double option1)
 {
 if (option1==1)
@@ -110,6 +137,49 @@ int main()
         cin>>age;
     double convertedheight=conversionheight(height,option1);
     double convertedweight=conversionweight(weight,option2);
+         double measuredbmi=bmi(convertedheight,convertedweight);
+        cout<<endl;
+    cout << "==================================" << endl;
+        cout << "Your BMI is: " << measuredbmi <<"\n"<< endl;
+    cout << "==================================" << endl;
+        int bodylevel=bmicomparison(measuredbmi);
+        if(bodylevel==0)
+        {
+
+
+
+
+
+
+            
+        }
+        else if(bodylevel==1)
+        {
+    cout << "Your BMI is Normal (NORMAL BMI is 25)." << endl;
+    cout << "You do not need a calorie plan." << endl;
+        }
+        else if(bodylevel==2)
+        {
+
+
+
+
+
+
+
+            
+        }
+        else if(bodylevel==3)
+        {
+
+
+
+
+
+
+
+            
+        }
  else if(loggedin==0)
      {
     cout<<"YOU INPUTTED INVALID USERNAME AND PASSWORD!! GOING BACK TO MAIN MENU"<<endl;
