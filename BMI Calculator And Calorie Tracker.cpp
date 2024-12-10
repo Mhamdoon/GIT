@@ -34,6 +34,8 @@ int main()
     srand(time(0));  
     int choice;
     bool loggedin;
+    double height,weight;
+    int age,option1,option2,calories;
     string username,password;
     cout<<setw(70)<<"|---------------------------------------------|"<<endl;
     cout<<setw(70)<<"|         WELCOME TO BMI CALCULATOR APP       |"<<endl; 
@@ -74,3 +76,13 @@ int main()
     cout << "====================================" << endl;
     cout << "    WELCOME TO BMI CALCULATOR APP   " << endl;
     cout << "====================================" << endl;
+    cout << "Choose Height Unit (1 for CM, 2 for FOOT): ";//choose option then calorie counting and table
+        cin>>option1;
+    cout<<"Enter Your Height:";
+        cin>>height;
+    cout << "Choose Weight Unit (1 for POUNDS, 2 for KG): ";
+        cin>>option2;
+    cout<<"Enter Your Weight:";
+        cin>>weight;
+    cout<<"Enter Your Age:";
+        cin>>age;
