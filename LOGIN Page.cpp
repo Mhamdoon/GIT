@@ -32,10 +32,6 @@ bool isloggedin(string username,string password)
 int main()
 {
     srand(time(0));  
-    double height,weight;
-    int age,option1,option2,calories;
-    int maintenance;
-    char plan;
     int choice;
     bool loggedin;
     string username,password;
