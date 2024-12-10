@@ -5,6 +5,28 @@
 #include<string>
 #include<ctime>
 using namespace std;
+double conversionheight(double height,double option1)
+{
+if (option1==1)
+{
+    return height;
+}
+else if(option1==2)
+{
+    return height* 30.48;
+}
+}
+double conversionweight(double weight, double option2)
+{
+if (option2==1)
+{
+    return 0.453592*weight;//returning in kg
+}
+else if(option2==2)
+{
+    return weight;
+}
+}
 bool isloggedin(string username,string password)
 { 
     string un,pss;
@@ -86,6 +108,8 @@ int main()
         cin>>weight;
     cout<<"Enter Your Age:";
         cin>>age;
+    double convertedheight=conversionheight(height,option1);
+    double convertedweight=conversionweight(weight,option2);
  else if(loggedin==0)
      {
     cout<<"YOU INPUTTED INVALID USERNAME AND PASSWORD!! GOING BACK TO MAIN MENU"<<endl;
