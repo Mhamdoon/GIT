@@ -1,4 +1,4 @@
-
+-------------------------------
 
 #include<iostream>
 #include<fstream>
@@ -86,3 +86,11 @@ int main()
         cin>>weight;
     cout<<"Enter Your Age:";
         cin>>age;
+ else if(loggedin==0)
+     {
+    cout<<"YOU INPUTTED INVALID USERNAME AND PASSWORD!! GOING BACK TO MAIN MENU"<<endl;
+    cout<<"\n";
+        main();
+     }
+    }
+}
