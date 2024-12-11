@@ -5,7 +5,57 @@
 #include<string>
 #include<ctime>
 using namespace std;
+//comments and error handling
+int caloriedeficit(int maintenance, int calories)
+{
+return maintenance-calories;
+}
+int calorietracker() {
+    int choice, itemChoice;
+    int totalCalories = 0;
+    string items[10] = {"Pizza", "Bread", "Biryani", "Chicken Curry", "Haleem", "Dessert", "Burger", "Pasta", "Cold Drink", "Sandwich"};
+    int calories[10] = {500, 100, 600, 600, 700, 400, 800, 700, 150, 550};
 
+    cout << "========================================" << endl;
+    cout << "         TRACK YOUR CALORIES            " << endl;
+    cout << "========================================" << endl;
+
+    while (true) {
+        cout << "\n============= FOOD MENU =============" << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << "ITEM " << i + 1 << " - " << items[i] 
+                 << " - CALORIES: " << calories[i] << " cal" << endl;
+        }
+
+        cout << "\nChoose an option:" << endl;
+        cout << "1. Add calories (enter the food item number)" << endl;
+        cout << "2. View total calories and exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Enter the item number you have eaten (1-10): ";
+            cin >> itemChoice;
+
+            if (itemChoice >= 1 && itemChoice <= 10) {
+                totalCalories += calories[itemChoice - 1];
+                cout << "You chose " << items[itemChoice - 1] 
+                     << ". Calories added: " << calories[itemChoice - 1] << " cal." << endl;
+            } else {
+                cout << "Invalid item number. Please choose a number between 1 and 10." << endl;
+            }
+        } else if (choice == 2) {
+            cout << "========================================" << endl;
+            cout << "    Total Calories Consumed: " << totalCalories << " cal" << endl;
+            cout << "========================================" << endl;
+            break;
+        } else {
+            cout << "Invalid choice. Please choose 1 or 2." << endl;
+        }
+    }
+
+    return totalCalories;
+}
 void displayTable(int bodylevel) {
     srand(time(0));
 
@@ -195,7 +245,9 @@ int main()
         displayTable(bodylevel);
         cout<<"Enter Your Maintenance Calories from The Table:"<<endl;
         cin>>maintenance;
-
+        cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
+        calories=calorietracker();
+        int deficit=caloriedeficit(maintenance,calories); 
 
 
 
@@ -218,7 +270,9 @@ int main()
         displayTable(bodylevel);
     cout << "Enter Your Maintenance Calories from the Table: ";
         cin>>maintenance;
-
+        cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
+        calories=calorietracker();
+        int deficit=caloriedeficit(maintenance,calories);
             
         }
         else if(bodylevel==3)
@@ -233,7 +287,9 @@ int main()
         displayTable(bodylevel);
     cout<<"Enter Your Maintenance Calories from The Table:"<<endl;
         cin>>maintenance;
-
+        cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
+        calories=calorietracker();
+        int deficit=caloriedeficit(maintenance,calories);
             
         }
  else if(loggedin==0)
