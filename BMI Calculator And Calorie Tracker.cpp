@@ -5,6 +5,46 @@
 #include<string>
 #include<ctime>
 using namespace std;
+
+void displayTable(int bodylevel) {
+    srand(time(0));
+
+    string activityLevels[] = {"Less", "Moderate", "High", "Very High"};
+    int maintenanceCalories[4];
+
+    cout << "=========================================" << endl;
+    cout << "     Activity Level vs Maintenance Calories" << endl;
+    cout << "=========================================" << endl;
+
+    if (bodylevel == 0) {
+        maintenanceCalories[0] = 1800 + rand() % 201;
+        maintenanceCalories[1] = 2100 + rand() % 101;
+        maintenanceCalories[2] = 2250 + rand() % 151;
+        maintenanceCalories[3] = 2450 + rand() % 251;
+    } else if (bodylevel == 2) {
+        maintenanceCalories[0] = 2000 + rand() % 201;
+        maintenanceCalories[1] = 2250 + rand() % 201;
+        maintenanceCalories[2] = 2500 + rand() % 151;
+        maintenanceCalories[3] = 2660 + rand() % 141;
+    } else if (bodylevel == 3) {
+        maintenanceCalories[0] = 2300 + rand() % 101;
+        maintenanceCalories[1] = 2450 + rand() % 201;
+        maintenanceCalories[2] = 2650 + rand() % 251;
+        maintenanceCalories[3] = 2950 + rand() % 451;
+    } else {
+        cout << "Invalid body level!" << endl;
+        return;
+    }
+
+    cout << left << setw(20) << "Activity Level" << setw(20) << "Maintenance Calories" << endl;
+    cout << "-----------------------------------------" << endl;
+
+    for (int i = 0; i < 4; i++) {
+        cout << left << setw(20) << activityLevels[i] << setw(20) << maintenanceCalories[i] << "cal" << endl;
+    }
+
+    cout << "=========================================" << endl;
+}
 int bmicomparison(double measuredbmi)
 {
     int level;
@@ -146,7 +186,15 @@ int main()
         if(bodylevel==0)
         {
 
-
+    cout << "You are Underweight (NORMAL BMI is 25)." << endl;
+    cout << "To gain weight, you need to consume at least 500 calories more than usual." << endl;
+    cout << "Would you like to proceed with a calorie plan? (y/n): ";
+        cin>>plan;
+        if(plan=='Y'||plan=='y')
+        {
+        displayTable(bodylevel);
+        cout<<"Enter Your Maintenance Calories from The Table:"<<endl;
+        cin>>maintenance;
 
 
 
@@ -161,11 +209,15 @@ int main()
         else if(bodylevel==2)
         {
 
-
-
-
-
-
+       cout << "You are Overweight (NORMAL BMI is 25)." << endl;
+    cout << "To lose weight, you need to consume at least 500 calories less than usual." << endl;
+    cout << "Would you like to proceed with a calorie plan? (y/n): ";
+        cin>>plan;
+        if(plan=='Y'||plan=='y')
+        {
+        displayTable(bodylevel);
+    cout << "Enter Your Maintenance Calories from the Table: ";
+        cin>>maintenance;
 
             
         }
@@ -173,10 +225,14 @@ int main()
         {
 
 
-
-
-
-
+    cout << "You are Obese (NORMAL BMI is 25)." << endl;
+    cout << "Would you like to proceed with a calorie plan? (y/n): ";
+        cin>>plan;
+        if(plan=='Y'||plan=='y')
+        {
+        displayTable(bodylevel);
+    cout<<"Enter Your Maintenance Calories from The Table:"<<endl;
+        cin>>maintenance;
 
             
         }
