@@ -1,11 +1,10 @@
--------------------------------
-
 #include<iostream>
 #include<fstream>
 #include<string>
+#include <iomanip>
 #include<ctime>
+//add error handling pls
 using namespace std;
-//comments and error handling
 void plantrue(int maintenance, int calories,int bodylevel)
 {
     cout << "|----------------------------------------------|" << endl;
@@ -33,52 +32,6 @@ void planfalse(int maintenance, int calories,int bodylevel)
 int caloriedeficit(int maintenance, int calories)
 {
 return maintenance-calories;
-}
-int calorietracker() {
-    int choice, itemChoice;
-    int totalCalories = 0;
-    string items[10] = {"Pizza", "Bread", "Biryani", "Chicken Curry", "Haleem", "Dessert", "Burger", "Pasta", "Cold Drink", "Sandwich"};
-    int calories[10] = {500, 100, 600, 600, 700, 400, 800, 700, 150, 550};
-
-    cout << "========================================" << endl;
-    cout << "         TRACK YOUR CALORIES            " << endl;
-    cout << "========================================" << endl;
-
-    while (true) {
-        cout << "\n============= FOOD MENU =============" << endl;
-        for (int i = 0; i < 10; i++) {
-            cout << "ITEM " << i + 1 << " - " << items[i] 
-                 << " - CALORIES: " << calories[i] << " cal" << endl;
-        }
-
-        cout << "\nChoose an option:" << endl;
-        cout << "1. Add calories (enter the food item number)" << endl;
-        cout << "2. View total calories and exit" << endl;
-        cout << "Enter your choice: ";
-        cin >> choice;
-
-        if (choice == 1) {
-            cout << "Enter the item number you have eaten (1-10): ";
-            cin >> itemChoice;
-
-            if (itemChoice >= 1 && itemChoice <= 10) {
-                totalCalories += calories[itemChoice - 1];
-                cout << "You chose " << items[itemChoice - 1] 
-                     << ". Calories added: " << calories[itemChoice - 1] << " cal." << endl;
-            } else {
-                cout << "Invalid item number. Please choose a number between 1 and 10." << endl;
-            }
-        } else if (choice == 2) {
-            cout << "========================================" << endl;
-            cout << "    Total Calories Consumed: " << totalCalories << " cal" << endl;
-            cout << "========================================" << endl;
-            break;
-        } else {
-            cout << "Invalid choice. Please choose 1 or 2." << endl;
-        }
-    }
-
-    return totalCalories;
 }
 void displayTable(int bodylevel) {
     srand(time(0));
@@ -140,12 +93,6 @@ else if(measuredbmi>35)
 }
 return level;
 }
-double bmi(double convertedheight,double convertedweight)
-{
-    int bmi;
-    double heightinmeters=convertedheight/100;
-    return convertedweight/(heightinmeters*heightinmeters);
-}
 double conversionheight(double height,double option1)
 {
 if (option1==1)
@@ -167,6 +114,58 @@ else if(option2==2)
 {
     return weight;
 }
+}
+double bmi(double convertedheight,double convertedweight)
+{
+    int bmi;
+    double heightinmeters=convertedheight/100;
+    return convertedweight/(heightinmeters*heightinmeters);
+}
+int calorietracker() {
+    int choice, itemChoice;
+    int totalCalories = 0;
+    string items[10] = {"Pizza", "Bread", "Biryani", "Chicken Curry", "Haleem", "Dessert", "Burger", "Pasta", "Cold Drink", "Sandwich"};
+    int calories[10] = {500, 100, 600, 600, 700, 400, 800, 700, 150, 550};
+
+    cout << "========================================" << endl;
+    cout << "         TRACK YOUR CALORIES            " << endl;
+    cout << "========================================" << endl;
+
+    while (true) {
+        cout << "\n============= FOOD MENU =============" << endl;
+        for (int i = 0; i < 10; i++) {
+            cout << "ITEM " << i + 1 << " - " << items[i] 
+                 << " - CALORIES: " << calories[i] << " cal" << endl;
+        }
+
+        cout << "\nChoose an option:" << endl;
+        cout << "1. Add calories (enter the food item number)" << endl;
+        cout << "2. View total calories and exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            cout << "Enter the item number you have eaten (1-10): ";
+            cin >> itemChoice;
+
+            if (itemChoice >= 1 && itemChoice <= 10) {
+                totalCalories += calories[itemChoice - 1];
+                cout << "You chose " << items[itemChoice - 1] 
+                     << ". Calories added: " << calories[itemChoice - 1] << " cal." << endl;
+            } else {
+                cout << "Invalid item number. Please choose a number between 1 and 10." << endl;
+            }
+        } else if (choice == 2) {
+            cout << "========================================" << endl;
+            cout << "    Total Calories Consumed: " << totalCalories << " cal" << endl;
+            cout << "========================================" << endl;
+            break;
+        } else {
+            cout << "Invalid choice. Please choose 1 or 2." << endl;
+        }
+    }
+
+    return totalCalories;
 }
 bool isloggedin(string username,string password)
 { 
@@ -195,10 +194,12 @@ bool isloggedin(string username,string password)
 int main()
 {
     srand(time(0));  
-    int choice;
-    bool loggedin;
     double height,weight;
     int age,option1,option2,calories;
+    int maintenance;//lol
+    char plan;
+    int choice;
+    bool loggedin;
     string username,password;
     cout<<setw(70)<<"|---------------------------------------------|"<<endl;
     cout<<setw(70)<<"|         WELCOME TO BMI CALCULATOR APP       |"<<endl; 
@@ -239,6 +240,7 @@ int main()
     cout << "====================================" << endl;
     cout << "    WELCOME TO BMI CALCULATOR APP   " << endl;
     cout << "====================================" << endl;
+
     cout << "Choose Height Unit (1 for CM, 2 for FOOT): ";//choose option then calorie counting and table
         cin>>option1;
     cout<<"Enter Your Height:";
@@ -249,9 +251,9 @@ int main()
         cin>>weight;
     cout<<"Enter Your Age:";
         cin>>age;
-    double convertedheight=conversionheight(height,option1);
-    double convertedweight=conversionweight(weight,option2);
-         double measuredbmi=bmi(convertedheight,convertedweight);
+        double convertedheight=conversionheight(height,option1);
+        double convertedweight=conversionweight(weight,option2);
+        double measuredbmi=bmi(convertedheight,convertedweight);
         cout<<endl;
     cout << "==================================" << endl;
         cout << "Your BMI is: " << measuredbmi <<"\n"<< endl;
@@ -259,7 +261,6 @@ int main()
         int bodylevel=bmicomparison(measuredbmi);
         if(bodylevel==0)
         {
-
     cout << "You are Underweight (NORMAL BMI is 25)." << endl;
     cout << "To gain weight, you need to consume at least 500 calories more than usual." << endl;
     cout << "Would you like to proceed with a calorie plan? (y/n): ";
@@ -271,7 +272,7 @@ int main()
         cin>>maintenance;
         cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
         calories=calorietracker();
-        int deficit=caloriedeficit(maintenance,calories); 
+        int deficit=caloriedeficit(maintenance,calories);
         if(deficit<=-500)
         {
     plantrue(maintenance,calories,bodylevel);
@@ -285,9 +286,7 @@ int main()
         {
             system("exit");
         }
-
-
-            
+        
         }
         else if(bodylevel==1)
         {
@@ -296,8 +295,7 @@ int main()
         }
         else if(bodylevel==2)
         {
-
-       cout << "You are Overweight (NORMAL BMI is 25)." << endl;
+    cout << "You are Overweight (NORMAL BMI is 25)." << endl;
     cout << "To lose weight, you need to consume at least 500 calories less than usual." << endl;
     cout << "Would you like to proceed with a calorie plan? (y/n): ";
         cin>>plan;
@@ -306,7 +304,7 @@ int main()
         displayTable(bodylevel);
     cout << "Enter Your Maintenance Calories from the Table: ";
         cin>>maintenance;
-        cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
+    cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
         calories=calorietracker();
         int deficit=caloriedeficit(maintenance,calories);
         if(deficit>=500)
@@ -323,17 +321,9 @@ int main()
             system("exit");
         }
         
-
-
-
-
-
-            
         }
         else if(bodylevel==3)
         {
-
-
     cout << "You are Obese (NORMAL BMI is 25)." << endl;
     cout << "Would you like to proceed with a calorie plan? (y/n): ";
         cin>>plan;
@@ -342,7 +332,7 @@ int main()
         displayTable(bodylevel);
     cout<<"Enter Your Maintenance Calories from The Table:"<<endl;
         cin>>maintenance;
-        cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
+    cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
         calories=calorietracker();
         int deficit=caloriedeficit(maintenance,calories);
         if(deficit>=500)
@@ -358,11 +348,16 @@ int main()
         {
             system("exit");
         }
- else if(loggedin==0)
+        }
+        
+        
+     }
+     else if(loggedin==0)
      {
     cout<<"YOU INPUTTED INVALID USERNAME AND PASSWORD!! GOING BACK TO MAIN MENU"<<endl;
     cout<<"\n";
         main();
      }
-    }
+    
+}
 }
