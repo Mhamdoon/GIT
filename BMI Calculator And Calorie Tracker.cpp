@@ -6,6 +6,30 @@
 #include<ctime>
 using namespace std;
 //comments and error handling
+void plantrue(int maintenance, int calories,int bodylevel)
+{
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|         CALORIE PLAN ASSESSMENT              |" << endl;
+    cout << "|----------------------------------------------|" << endl;
+    cout << "| Maintenance Calories:     " << setw(10) << maintenance << " cal    |" << endl;
+    cout << "| Calories Consumed Today:  " << setw(10) << calories << " cal     |" << endl;
+    cout << "| Calorie Deficit:          " << setw(10) << maintenance - calories << " cal     |" << endl;
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|  ✓ CONGRATULATIONS! You Followed The Plan!   |" << endl;
+    cout << "|----------------------------------------------|" << endl;
+}
+void planfalse(int maintenance, int calories,int bodylevel)
+{
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|         CALORIE PLAN ASSESSMENT              |" << endl;
+    cout << "|----------------------------------------------|" << endl;
+    cout << "| Maintenance Calories:     " << setw(10) << maintenance << " cal    |" << endl;
+    cout << "| Calories Consumed Today:  " << setw(10) << calories << " cal    |" << endl;
+    cout << "| Calorie Deficit:          " << setw(10) << maintenance - calories << " cal    |" << endl;
+    cout << "|----------------------------------------------|" << endl;
+    cout << "|  × WORK HARDER! Deficit Less Than Required   |" << endl;
+    cout << "|----------------------------------------------|" << endl;
+}
 int caloriedeficit(int maintenance, int calories)
 {
 return maintenance-calories;
@@ -248,7 +272,19 @@ int main()
         cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
         calories=calorietracker();
         int deficit=caloriedeficit(maintenance,calories); 
-
+        if(deficit<=-500)
+        {
+    plantrue(maintenance,calories,bodylevel);
+        }
+        else
+        {
+    planfalse(maintenance,calories,bodylevel);
+        }
+        }
+        else if(plan=='N'||plan=='n')
+        {
+            system("exit");
+        }
 
 
             
@@ -273,6 +309,25 @@ int main()
         cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
         calories=calorietracker();
         int deficit=caloriedeficit(maintenance,calories);
+        if(deficit>=500)
+        {
+        plantrue(maintenance,calories,bodylevel);
+        }
+        else
+        {
+        planfalse(maintenance,calories,bodylevel);
+        }
+        }
+        else if(plan=='N'||plan=='n')
+        {
+            system("exit");
+        }
+        
+
+
+
+
+
             
         }
         else if(bodylevel==3)
@@ -290,7 +345,18 @@ int main()
         cout<<"Proceeding To Calculate Your Calories Today:"<<endl;
         calories=calorietracker();
         int deficit=caloriedeficit(maintenance,calories);
-            
+        if(deficit>=500)
+        {
+        plantrue(maintenance,calories,bodylevel);
+        }
+        else
+        {
+        planfalse(maintenance,calories,bodylevel);
+        }
+        }
+        else if(plan=='N'||plan=='n')
+        {
+            system("exit");
         }
  else if(loggedin==0)
      {
