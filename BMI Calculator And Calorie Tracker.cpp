@@ -3,7 +3,6 @@
 #include<string>
 #include <iomanip>
 #include<ctime>
-//add error handling pls
 using namespace std;
 void plantrue(int maintenance, int calories,int bodylevel)
 {
@@ -243,10 +242,20 @@ int main()
 
     cout << "Choose Height Unit (1 for CM, 2 for FOOT): ";//choose option then calorie counting and table
         cin>>option1;
+        if(option1>2||option1<1)
+        {
+            cout<<"ERROR! INPUT 1 OR 2:";
+            main();
+        }
     cout<<"Enter Your Height:";
         cin>>height;
     cout << "Choose Weight Unit (1 for POUNDS, 2 for KG): ";
         cin>>option2;
+        if(option2>2||option2<1)
+        {
+            cout<<"ERROR! INPUT 1 OR 2:";
+            main();
+        }
     cout<<"Enter Your Weight:";
         cin>>weight;
     cout<<"Enter Your Age:";
@@ -286,7 +295,11 @@ int main()
         {
             system("exit");
         }
-        
+        else
+        {
+            cout<<"Error!! Input The Correct Choice!";
+            system("exit");
+        }
         }
         else if(bodylevel==1)
         {
@@ -320,7 +333,11 @@ int main()
         {
             system("exit");
         }
-        
+        else
+        {
+            cout<<"Error!! Input The Correct Choice!";
+            system("exit");
+        }
         }
         else if(bodylevel==3)
         {
@@ -348,6 +365,11 @@ int main()
         {
             system("exit");
         }
+        else
+        {
+            cout<<"Error!! Input The Correct Choice!";
+            system("exit");
+        }
         }
         
         
@@ -359,5 +381,8 @@ int main()
         main();
      }
     
+}
+else{
+    cout<<"ERROR !! Enter 1 or 2:";
 }
 }
