@@ -1,0 +1,10 @@
+luxury L001 BMW 7Series 2023 120000
+luxury L002 Audi A8 2022 115000
+luxury L003 Mercedes SClass 2024 130000
+luxury L004 Lexus LS 2023 110000
+luxury L005 Jaguar XJ 2022 105000
+luxury L006 Porsche Panamera 2023 140000
+luxury L007 Maserati Quattroporte 2022 125000
+luxury L008 Genesis G90 2023 100000
+luxury L009 Bentley FlyingSpur 2024 200000
+luxury L010 RollsRoyce Ghost 2023 250000

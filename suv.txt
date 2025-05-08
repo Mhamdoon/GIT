@@ -1,0 +1,10 @@
+Suv S001 Ford Explorer 2021 80000
+Suv S002 Toyota Fortuner 2022 90000
+Suv S003 Honda CRV 2023 85000
+Suv S004 Nissan Rogue 2023 82000
+Suv S005 Hyundai Tucson 2024 83000
+Suv S006 Kia Sorento 2023 87000
+Suv S007 Mazda CX5 2022 84000
+Suv S008 Jeep GrandCherokee 2023 95000
+Suv S009 Chevrolet Tahoe 2022 100000
+Suv S010 Subaru Outback 2023 78000

@@ -1,0 +1,10 @@
+Electric E001 Tesla ModelX 2024 150000
+Electric E002 Nissan Leaf 2023 85000
+Electric E003 Tesla Model3 2024 120000
+Electric E004 Ford Mustang 2023 110000
+Electric E005 Chevrolet Bolt 2022 75000
+Electric E006 Hyundai Ioniq5 2023 95000
+Electric E007 Kia EV6 2024 100000
+Electric E008 Rivian RIT 2023 130000
+Electric E009 Lucid Air 2024 180000
+Electric E010 Polestar Two 2023 90000

@@ -1,0 +1,14 @@
+Standard C001 Toyota Corolla 2022 50000
+Standard C002 Honda Civic 2023 55000
+Standard C003 Nissan Sentra 2023 45000
+Standard C004 Hyundai Elantra 2022 48000
+Standard C005 Kia Forte 2023 47000
+Standard C006 Mazda 3 2024 52000
+Standard C007 Volkswagen Jetta 2023 53000
+Standard C008 Subaru Impreza 2022 51000
+Standard C009 Chevrolet Malibu 2023 49000
+Standard C010 Ford Focus 2022 46000
+
+
+
+
